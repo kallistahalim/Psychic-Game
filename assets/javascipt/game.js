@@ -1,38 +1,44 @@
-var questionIndex = 0;
+
 var numWins = 0;
-var numLoses = 0;
-var userGuesses=9;
-var userGuess;
+var numLosses = 0;
+var remainingGuesses = 9;
+var userInput = [];
+var index = 0;
+var letter;
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
 
-var alphabet = ['abcdefghijklmnopqrstuvwxyz'.split('')];
-console.log(alphabet);
-//render the questions
+function startNewGame() {
+    remainingGuesses = 9;
+    userInput = [];
+    index = 0;
+    computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+    document.querySelector("#guesses-left").innerHTML = remainingGuesses;
+    document.querySelector("#so-far").innerHTML = '';
+}
 
-if (questionIndex = alphabet.length) {
-    document.querySelector("#question").innerHTML = alphabet[questionIndex];
-  }
+startNewGame();
 
-//press any key to start the game//
+document.onkeyup = function (event) {
+    letter = event.key.toLowerCase();
+    if (letter === computerGuess) {
+        numWins++;
+        document.querySelector("#wins").innerHTML = numWins;
+        startNewGame();
+    } else {
+        remainingGuesses + 1;
 
-    document.onKeyUp = function(event) {
-
-    var userGuess = event.key;
-    
+        if (remainingGuesses < 1) {
+            numLosses++
+            document.getElementById("loses").innerHTML = numLosses;
+            startNewGame();
+        } else {
+            userInput.push(letter);
+            document.getElementById("so-far").innerHTML = document.getElementById("so-far").innerHTML +
+                userInput[index] + ", ";
+            index++;
+            document.querySelector("guesses-left").innerHTML = remainingGuesses;
+        }
     }
-
-    alert("let start the game!");
-
-//let the user guesses 9 letters
-
-//if one of them is correct, she wins
-
-//if none of them is correct, she losses
-
-//Guesses Left: (# of guesses left. This will update)//
-
-//Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)//
-    
-//When the player wins, increase the Wins counter and start the game over again (without refreshing the page).//
-    
-//When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).//
-
+}
+ 
