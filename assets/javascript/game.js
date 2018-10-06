@@ -36,7 +36,7 @@ document.onkeyup = function (event) {
             document.getElementById("so-far").innerHTML = document.getElementById("so-far").innerHTML +
                 userInput[index] + ", ";
             index++;
-            document.querySelector("guesses-left").innerHTML = remainingGuesses;
+            document.querySelector("#guesses-left").innerHTML = remainingGuesses;
         }
     }
 }
