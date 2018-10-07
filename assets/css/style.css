@@ -2,9 +2,32 @@ body{
     background-image:url("../images/background.jpg");
 }
 
-h1, h2{
+h1,h2{
     color: white;
     font-family: 'Gloria Hallelujah', cursive;
     text-align: center;
 }
 
+#title{
+    font-size: 32px;
+}
+
+#intro{
+  font-size: 20px;
+}
+
+#scores{
+    font-size: 12px;
+}
+
+p{
+    text-align: left;
+    color : white;
+    font-family: ‘Montserrat’, sans-serif;
+    font-size: 10px;
+    padding-left: 5px;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+
+}
