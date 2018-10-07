@@ -1,0 +1,10 @@
+body{
+    background-image:url("../images/background.jpg");
+}
+
+h1, h2{
+    color: white;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: center;
+}
+
